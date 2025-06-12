@@ -1,0 +1,20 @@
+/* :host permet de cibler la balise du composant */
+:host {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  max-width: 150px;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+a .logo {
+  cursor: pointer;
+
+  &:hover {
+    outline: 2px solid #aaa;
+  }
+}

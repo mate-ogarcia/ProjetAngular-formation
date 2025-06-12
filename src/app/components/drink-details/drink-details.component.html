@@ -1,0 +1,18 @@
+<button class="btn btn-primary" routerLink="..">
+  Back
+</button>
+
+<!-- Autre façon de faire pour le routerLink aussi -->
+<!-- <button class="btn btn-primary" [routerLink]="['/drinks']">
+  Back
+</button> -->
+
+<div class="card" *ngIf="drink"> <!-- Verifier que le drink est bien récupéré avant de récupérer les données -->
+  <div class="card-body text-center">
+    <h1>{{ drink.name }}</h1>
+    <img class="img-fluid rounded" [src]="drink.image">
+    <div class="text-muted">{{ drink.price | currency:'EUR' }}</div>
+    <div class="badge bg-primary">{{ drink.category | drinkCategoryLabel }}</div>
+    <div>{{ drink.description }}</div>
+  </div>
+</div> 

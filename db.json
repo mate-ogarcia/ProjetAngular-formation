@@ -1,0 +1,52 @@
+{
+  "drinks": [
+    {
+      "id": "92a1",
+      "name": "Taiwanese Cafe Latte",
+      "price": 1.99,
+      "description": "Lorem ipsum",
+      "category": "sweet",
+      "image": "drinks/taiwanese-tea-cafe-latte.png"
+    },
+    {
+      "name": "Matcha Latte",
+      "price": 1.99,
+      "description": "Lorem ipsum",
+      "category": "low-sugar",
+      "image": "drinks/matcha-latte.png",
+      "id": "34k1"
+    },
+    {
+      "name": "Cafe Latte",
+      "price": 0.99,
+      "description": "Lorem ipsum",
+      "category": "low-sugar",
+      "image": "drinks/cafe-latte.png",
+      "id": "03b5"
+    },
+    {
+      "name": "Cappucino",
+      "price": 0.99,
+      "description": "Lorem ipsum",
+      "category": "low-sugar",
+      "image": "drinks/cappuccino.png",
+      "id": "9250"
+    },
+    {
+      "id": "66b7",
+      "name": "Caramel Latte",
+      "price": 1.39,
+      "description": "Lorem ipsum",
+      "category": "sweet",
+      "image": "drinks/caramel-latte.png"
+    },
+    {
+      "id": "9d59",
+      "name": "Kokuto Cafe Latte",
+      "price": 1.39,
+      "description": "Lorem Ipsum",
+      "category": "no-sugar",
+      "image": "drinks/kokuto-cafe-latte.png"
+    }
+  ]
+}

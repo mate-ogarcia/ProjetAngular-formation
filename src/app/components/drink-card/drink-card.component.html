@@ -1,0 +1,8 @@
+<div class="card mb-3" [routerLink]="['/drinks', drink.id]" (click)="onClick.emit(drink)">
+  <img [src]="drink.image" class="card-img-top border-bottom">
+  <div class="card-body text-center p-1">
+    <h5 class="mb-0">{{ drink.name }}</h5>
+    <div class="text-muted">{{ drink.price | currency:'EUR' }}</div>
+    <div class="badge bg-primary">{{ drink.category | drinkCategoryLabel }}</div>
+  </div>
+</div>
