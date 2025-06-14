@@ -153,13 +153,4 @@ npm start
 - Utilisation d'un backend mock pour le développement
 - Organisation et structuration d'un projet Angular moderne
 
----
-
-## Pour aller plus loin
-- [Documentation officielle Angular](https://angular.dev/overview)
-- [RxJS - Programmation réactive](https://rxjs.dev/)
-- [json-server](https://github.com/typicode/json-server)
-
----
-
 **Projet réalisé dans le cadre de mon apprentissage d'Angular 20+ en suivant la formation de Gaëtan Rouziès et des bonnes pratiques modernes.**
