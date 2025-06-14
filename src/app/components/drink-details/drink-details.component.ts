@@ -4,7 +4,9 @@ import { CommonModule } from '@angular/common';
 import { DrinkCategoryLabelPipe } from '../../pipes/drink-category-label.pipe';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DrinkService } from '../../services/drink.service';
- 
+import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
+
 @Component({
   selector: 'app-drink-details',
   imports: [CommonModule, DrinkCategoryLabelPipe, RouterLink],
@@ -14,7 +16,8 @@ import { DrinkService } from '../../services/drink.service';
 export class DrinkDetailsComponent implements OnInit{
   private drinkService = inject(DrinkService);
   private activatedRoute = inject(ActivatedRoute);
-  
+  private router = inject(Router);
+
   // Le symbole "?" après le nom de la propriété indique que "drink" est optionnelle,
   // c'est-à-dire qu'elle peut être de type "Drink" ou "undefined".
   drink?: Drink;
@@ -40,9 +43,20 @@ export class DrinkDetailsComponent implements OnInit{
    */
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((paramMap) => {
-      const drinkId = paramMap.get('drinkId')!; // Le "!" indique à TypeScript que la valeur ne sera jamais null ou undefined à cet endroit. En l'occurrence, on sait que ce cas ne peut pas arriver car l'identifiant est nécessaire pour accéder à cette route et donc pour afficher ce composant.
-      this.drinkService.getDrinkById(drinkId).subscribe((drink) => {
-        this.drink = drink;
+      const drinkId = paramMap.get('drinkId')!;
+      this.drinkService.getDrinkById(drinkId).subscribe({
+        next: (drink: Drink) => {
+          console.log('paramMap', paramMap);
+          console.log('paramMap.get("drinkId")', paramMap.get('drinkId'));
+          
+          this.drink = drink;
+        },
+        error: (error) => {
+          console.error('Erreur lors de la récupération de la boisson:', error);
+        },
+        complete: () => {
+          console.log('Récupération de la boisson terminée');
+        }
       });
     });
   }

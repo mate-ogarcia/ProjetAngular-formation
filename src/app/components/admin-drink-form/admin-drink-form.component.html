@@ -1,0 +1,50 @@
+<h1>Create Drink</h1>
+<div class="card mb-3">
+  <div class="card-body">
+    <pre>{{ formGroup.value | json }}</pre>
+    <form [formGroup]="formGroup" (ngSubmit)="createDrink()"(ngSubmit)="createDrink()">
+      <div class="mb-3">
+        <label class="form-label" for="name">Name</label>
+        <input formControlName="name" type="text" class="form-control" id="name">
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="price">Price</label>
+        <input formControlName="price" type="number" class="form-control" id="price">
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="description">Description</label>
+        <textarea formControlName="description" class="form-control" id="description"></textarea>
+      </div>
+      <div class="mb-3">
+        <label class="form-label d-block">Category</label>
+        <div class="form-check form-check-inline">
+          <input formControlName="category" formControlName="category" class="form-check-input" type="radio" id="inlineRadio1" value="sweet">
+          <label class="form-check-label" for="inlineRadio1">Sweet</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input formControlName="category" class="form-check-input" type="radio" id="inlineRadio2" value="low-sugar">
+          <label class="form-check-label" for="inlineRadio2">Low Sugar</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input formControlName="category" class="form-check-input" type="radio" id="inlineRadio3" value="no-sugar">
+          <label class="form-check-label" for="inlineRadio3">No Sugar</label>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="image">Image</label>
+        <select formControlName="image" class="form-control" id="image">
+          <option *ngFor="let image of drinksImageUrls" [value]="image">
+            {{ image }}
+          </option>
+        </select>
+        <!-- le ngif verifie si l'utilisateur à cliquer sur une image-->
+        <img *ngIf="formGroup.value.image" [src]="formGroup.value.image" alt="Image" class="d-block mt-3 rounded" style="max-width: 150px;">
+      </div>
+      <div class="text-end">
+        <button type="button" class="btn btn-outline-secondary me-2"
+                routerLink="/admin/drinks">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+    </form>
+  </div>
+</div>

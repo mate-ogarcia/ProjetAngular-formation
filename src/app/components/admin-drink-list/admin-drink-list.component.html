@@ -1,0 +1,9 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1 class="text-center m-0">Drinks</h1>
+  <button class="btn btn-primary" routerLink="create">Create Drink</button>
+</div>
+<div class="row">
+  <div class="col-6" *ngFor="let drink of drinks">
+    <app-drink-card [drink]="drink"></app-drink-card>
+  </div>
+</div>
