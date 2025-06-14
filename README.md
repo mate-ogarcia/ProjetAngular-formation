@@ -153,4 +153,4 @@ npm start
 - Utilisation d'un backend mock pour le développement
 - Organisation et structuration d'un projet Angular moderne
 
-**Projet réalisé dans le cadre de mon apprentissage d'Angular 20+ en suivant la formation de Gaëtan Rouziès et des bonnes pratiques modernes.**
+**Projet réalisé dans le cadre de mon apprentissage d'Angular 19 en suivant la formation de Gaëtan Rouziès et des bonnes pratiques modernes.**

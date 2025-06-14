@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DrinkCategory } from '../../models/drink.model';
 
 @Component({
@@ -12,9 +12,9 @@ import { DrinkCategory } from '../../models/drink.model';
 export class AdminDrinkFormComponent {
 
   formGroup = new FormGroup({
-    name: new FormControl<string>('', [Validators.required]),
-    price: new FormControl<number>(0, [Validators.required]),
-    description: new FormControl<string>('', [Validators.required]),
+    name: new FormControl<string>('', [Validators.required, Validators.minLength(3)]),
+    price: new FormControl<number>(0, [Validators.required , Validators.min(0.01)]),
+    description: new FormControl<string>('', [Validators.required , Validators.minLength(10)]),
     category: new FormControl<DrinkCategory>('sweet', [Validators.required]),
     image: new FormControl<string>('', [Validators.required])
   })
@@ -29,7 +29,15 @@ export class AdminDrinkFormComponent {
   ]
 
   createDrink(){
+    this.formGroup.markAllAsTouched(); // pour afficher les erreurs de validation
+    if(this.formGroup.invalid){
+      return;
+    }
+    
     console.log('Create Drink', this.formGroup.value);
   }
 
-}
+  isInvalidAndTouchedOrDirty(formControl: FormControl){
+    return formControl.invalid && (formControl.dirty || !formControl.untouched);
+  }
+} 
