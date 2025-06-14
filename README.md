@@ -1,4 +1,4 @@
-# Test Gaetan CLI - Projet Angular
+# Formation de Gaëtan Rouziès - Angular
 
 ## Présentation
 
