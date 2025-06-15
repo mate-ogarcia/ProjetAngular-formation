@@ -1,4 +1,4 @@
-<div class="card mb-3" [routerLink]="['/drinks', drink.id]" (click)="onClick.emit(drink)">
+<div class="card mb-3" [routerLink]="isAdmin ? ['/admin/drinks', drink.id, 'edit'] : ['/drinks', drink.id]" (click)="onClick.emit(drink)">
   <img [src]="drink.image" class="card-img-top border-bottom">
   <div class="card-body text-center p-1">
     <h5 class="mb-0">{{ drink.name }}</h5>

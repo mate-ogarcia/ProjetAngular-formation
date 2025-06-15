@@ -11,12 +11,13 @@ import { RouterLink } from '@angular/router';
   styleUrl: './drink-card.component.scss'
 })
   export class DrinkCardComponent {
-   // dumb component
-   // ! = non null assertion 
-   // required:true = sert à définir le fait qu'on est sur qu'il y aura du contenu et qu'elle est indispensable
+  // dumb component
+  // ! = non null assertion 
+  // required:true = sert à définir le fait qu'on est sur qu'il y aura du contenu et qu'elle est indispensable
   @Input({required:true}) drink!: Drink;
   @Output()
   onClick:EventEmitter<Drink> = new EventEmitter<Drink>();
+  @Input() isAdmin = false;
 
   ngOnInit(): void {
     console.log("ngOnInit", this.drink);
