@@ -9,7 +9,7 @@ export const routes: Routes = [
   {
     path: '',
     redirectTo: 'drinks',
-    pathMatch: 'full' // pour indiquer que c'est uniquement l'url vide 
+    pathMatch: 'full' // pour éviter que la redirection ne s'applique à toutes les URLs commençant par '', ce qui pourrait provoquer des redirections indésirables ou des boucles infinies. Avec 'full', la redirection ne s'applique que si l'URL correspond exactement à ''.
   },
   {
     path: 'drinks',

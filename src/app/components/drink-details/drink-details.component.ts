@@ -1,22 +1,19 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Drink } from '../../models/drink.model';
-import { CommonModule } from '@angular/common';
+import { CurrencyPipe } from '@angular/common';
 import { DrinkCategoryLabelPipe } from '../../pipes/drink-category-label.pipe';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { DrinkService } from '../../services/drink.service';
-import { Router } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-drink-details',
-  imports: [CommonModule, DrinkCategoryLabelPipe, RouterLink],
+  imports: [CurrencyPipe, DrinkCategoryLabelPipe],
   templateUrl: './drink-details.component.html',
   styleUrl: './drink-details.component.scss'
 })
 export class DrinkDetailsComponent implements OnInit{
   private drinkService = inject(DrinkService);
   private activatedRoute = inject(ActivatedRoute);
-  private router = inject(Router);
 
   // Le symbole "?" après le nom de la propriété indique que "drink" est optionnelle,
   // c'est-à-dire qu'elle peut être de type "Drink" ou "undefined".

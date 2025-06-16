@@ -4,7 +4,7 @@ import { DrinkService } from '../../services/drink.service';
 import { DrinkCardComponent } from '../drink-card/drink-card.component';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-
+    
 @Component({
   selector: 'app-admin-drink-list',
   imports: [DrinkCardComponent, CommonModule, RouterLink],

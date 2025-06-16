@@ -2,11 +2,10 @@ import { Component, OnInit, inject } from '@angular/core';
 import { Drink } from '../../models/drink.model';
 import { DrinkCardComponent } from '../drink-card/drink-card.component';
 import { DrinkService } from '../../services/drink.service';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-drink-list', 
-  imports: [DrinkCardComponent, CommonModule],
+  imports: [DrinkCardComponent],
   standalone: true,
   templateUrl: './drink-list.component.html',
   styleUrl: './drink-list.component.scss'

@@ -10,7 +10,7 @@ export const notFoundInterceptor: HttpInterceptorFn = (req, next) => {
     catchError((error) => {
       if (error instanceof HttpErrorResponse) {
         if (error.status === 404) {
-          router.navigate(['/not-found'], {skipLocationChange: true});
+          router.navigate(['/not-found'], {skipLocationChange: true}); // skipLocationChange: true pour éviter de faire un appel à la route /not-found
         }
       }
       // return throwError(() => error);

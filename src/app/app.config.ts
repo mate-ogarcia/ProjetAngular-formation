@@ -6,9 +6,13 @@ import { notFoundInterceptor } from './interceptors/not-found.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    // Configuration de la détection des changements de zone
     provideZoneChangeDetection({ eventCoalescing: true }),
+    // Configuration des routes
     provideRouter(routes),
+    // Configuration de l'intercepteur de requêtes HTTP
     provideHttpClient(withInterceptors([notFoundInterceptor])),
+    // Configuration de la locale française
     { provide: LOCALE_ID, useValue: 'fr-FR' }
   ]
 };

@@ -1,5 +1,4 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Drink, DrinkCategory } from '../../models/drink.model';
 import { DrinkService } from '../../services/drink.service';
@@ -7,7 +6,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-admin-drink-form',
-  imports: [CommonModule, ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './admin-drink-form.component.html',
   styleUrl: './admin-drink-form.component.scss'
 })
@@ -51,6 +50,7 @@ export class AdminDrinkFormComponent implements OnInit {
   }
 
   createDrink(){
+    // FAIRE ATTENTION AU TYPAGE DE VALUE (UNDEFINED / NULL) = Eviter le <partial> et déclarer des champs de cette façon {validators: [Validators.required, Validators.minLength(3)], nonNullable: true }
     // console.log('Create Drink', this.formGroup.value);
     // const formValue = this.formGroup.getRawValue(); // pour récupérer les valeurs du formulaire mais pas de façon "partial" plus précis
     this.drinkService.createDrink(this.formGroup.getRawValue()).subscribe(() => {
