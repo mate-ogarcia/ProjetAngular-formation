@@ -2,12 +2,12 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Drink } from '../../models/drink.model';
 import { CurrencyPipe } from '@angular/common';
 import { DrinkCategoryLabelPipe } from '../../pipes/drink-category-label.pipe';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DrinkService } from '../../services/drink.service';
 
 @Component({
   selector: 'app-drink-details',
-  imports: [CurrencyPipe, DrinkCategoryLabelPipe],
+  imports: [CurrencyPipe, DrinkCategoryLabelPipe, RouterLink],
   templateUrl: './drink-details.component.html',
   styleUrl: './drink-details.component.scss'
 })

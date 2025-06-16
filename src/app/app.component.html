@@ -1,6 +1,6 @@
 <!-- ------------------------------------------------------------ -->
 
-<!-- Rappel leçon -->
+<!-- Rappel leçon (Ancienne syntaxe control flow)-->
 <div class="container" text-center *ngIf="false"> <!-- *ngIf="false" pour ne pas afficher le contenu -->
 
   <!-- Affichage d'un titre avec interpolation de variable -->
@@ -58,10 +58,13 @@
 
 <div class="container"> 
   <div class="text-center">
-    <a *ngIf="router.url !== '/drinks'" [routerLink]="['/drinks']">
-      <img src="logo.jpg" [ngClass]="{'logo': true, 'logo-hover': true}">
-    </a>
-    <img *ngIf="router.url === '/drinks'" src="logo.jpg" [ngClass]="{'logo': true, 'logo-hover': false}">
+    @if (router.url !== '/drinks') {
+      <a [routerLink]="['/drinks']">
+        <img src="logo.jpg" [ngClass]="{'logo': true, 'logo-hover': true}">
+      </a>
+    } @else {
+      <img src="logo.jpg" [ngClass]="{'logo': true, 'logo-hover': false}">
+    }
   </div>
 
   <router-outlet></router-outlet> <!-- Affiche le composant correspondant à la route -->
